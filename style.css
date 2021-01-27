@@ -80,6 +80,40 @@ img{
     color: black;
 }
 
+.bestsellers{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bestsellers .items{
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+}
+
+.bestsellers h1{
+    font-family:'Permanent Marker' ;
+}
+
+.bestsellers img{
+    width: 283px;
+    height: 333px;
+}
+
+.bestsellers .item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 283px;
+    margin: 10px;
+    
+}
+
+.bestsellers .item h3{
+    font-size: 10px;
+}
+
 .insta{
     display: flex;
     flex-direction: column;
