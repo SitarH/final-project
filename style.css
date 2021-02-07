@@ -14,17 +14,16 @@ img{
 }
 
 .container{
-    width:100%;
+    display: flex;
     padding-left: 15px;
     padding-right: 15px;
-    display: flex;
+    margin-left:auto;
+    margin-right: auto;
 }
 
-@media screen and (min-width:1200px){
-    .container{
+@media screen and (min-width: 1200px){
+    .container {
         width: 1200px;
-        margin-left:auto;
-        margin-right: auto;
     }
 }
 
@@ -41,6 +40,7 @@ h1{
    justify-content: space-between;
    line-height: 2.5;
 }
+
 
 .line{
     height: 0.5px;
@@ -62,27 +62,63 @@ h1{
     color:#c1480b
 }
 .header{
-    position: absolute;
+    height: 80px;
     top: 35px;
     width: 100%;
     z-index: 1000;
 }
-.header .container{
-   
-    line-height: 3;
-    text-align: center;
-    height: 50px;
+
+@media screen and (min-width:768px){
+    .header{
+        position: absolute;
+     
+    }
 }
 
-.header .container .img{
+.header .container{
+    text-align: center;
+    height: 50px;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media screen and (min-width:768px){
+    .header .container{
+        line-height: 3;
+        text-align: center;
+        height: 50px;
+        flex-direction: row;
+    }
+}
+
+.header .container img{
     width: 60px;
     height: 50px;
 }
 
+@media screen and (min-width:1200px){
+    .header .container img{
+        width: 60px;
+        height: 50px;
+    }
+}
+
 .header .container a{
     text-decoration: none;
-    margin-left: 50px;
+    margin-left: 15px;
     color: black;
+}
+
+@media screen and (min-width:1200px){
+    .header .container a{
+        text-decoration: none;
+        margin-left: 50px;
+        color: black;
+    }
+}
+
+.main img{
+    width: 100%;
 }
 
 .shop .container{
@@ -90,12 +126,41 @@ h1{
     justify-content: space-between;
     padding-bottom: 30px;
     padding-top: 50px;
+    flex-direction: column;
 }
 
-.shop .container img{
-    width: 450px;
-    height: 450px;
-    margin: 60 20px;
+@media screen and (min-width:1200px){
+    .shop .container{
+        flex-direction: unset;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:768px){
+    .shop .container .shop-sec{
+        text-align: center;
+       
+    }
+}
+
+@media screen and (min-width:1200px){
+    .shop .container img{
+        width: 450px;
+        height: 450px;
+        margin: 60 20px;
+    
+    }
+}
+
+.shop .categories .lifestyle{
+    display: unset;
+}
+
+
+@media screen and (max-width:767px){
+    .shop .categories .lifestyle{
+        display: none;
+    }
 
 }
 
@@ -104,12 +169,22 @@ h1{
     display: flex;
     justify-content: space-between;
 }
+
 .categories img{
     width: 160px;
     height: 190px;
-    margin: 10px;
-
+    margin-top: 20px;
 }
+
+@media screen and (min-width:1200px){
+    .shop .container .categories img{
+        width: 160px;
+        height: 190px;
+        margin: 10px;
+        margin-top: 20px;
+    }
+}
+
 .bestsellers{
     display: flex;
     flex-direction: column;
@@ -124,7 +199,6 @@ h1{
   
 }
 
-
 .bestsellers img{
     width: 283px;
     height: 333px;
@@ -137,6 +211,13 @@ h1{
     align-items: center;
     margin: 10px;
     position: relative;
+}
+
+@media screen and (max-width:767px){
+    .bestsellers .item{
+        width: 100%;
+        margin: unset;
+    }
 }
 
 .bestsellers .item h3{
@@ -164,28 +245,47 @@ h1{
     align-items: center;
     margin-top: 30px;
     margin-bottom: 50px;
+
 }
 
-
-.insta .photos{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+@media screen and (max-width:1024px){
+    .insta{
+        display: none;
+    }
 }
-.insta img{
-    width: 12.50000%;
-    height: 161px;
 
+@media screen and (min-width:1200px){
+    .insta .photos{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    
+    }
+}
+
+@media screen and (min-width:1200px){
+    .insta img{
+        width: 12.50000%;
+        height: 161px;
+    
+    }
 }
 .contact .container{
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 200px;
+    height: 350px;
     background-color:  #048467;
     margin-bottom: 30px;
     position: relative;
 
+}
+
+@media screen and (min-width:1200px){
+    .contact .container{
+        height: 200px;
+    
+    }
 }
 
 .contact .container img{
@@ -197,8 +297,19 @@ h1{
 
 .contact .container .form{
     display: flex; 
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
+    text-align: center;
+    align-items: center;
+}
+
+@media screen and (min-width:1200px){
+    .contact .container .form{
+        flex-direction: row;
+        text-align: left;
+        align-items: unset;
+    
+    }
 }
 
 .form .details .box{
@@ -208,20 +319,28 @@ h1{
 
 }
 
-.form .details{
-    margin-left: 50px;
+
+@media screen and (min-width:1200px){
+    .form .details{
+        margin-left: 50px;
+    
+    }
 }
 
 .form .message{
-    
     flex-direction: column;
+}
+
+@media screen and (min-width:1200px){
+    .form .message{
     margin-left: 100px;
+    
+    }
 }
 
 .form .message .box{
     width: 250px;
-    height: 105px
-    ;
+    height: 105px;
     background-color: white;
     margin-bottom: 5px;
 
@@ -241,13 +360,42 @@ h1{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 200px;
     color: white;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+@media screen and (min-width:1200px){
+    .footer .container{
+        justify-content: space-around;
+       flex-wrap: nowrap;
+       height: 250px;
+    
+    }
+}
+
+.footer .container .logo{
+    width: 100%;
+}
+
+@media screen and (min-width:1200px){
+    .footer .container .logo{
+       width: 25%;
+    
+    }
 }
 
 .footer .container .item{
     display: flex;
     flex-direction: column;
+    width: 50%;
+}
+
+@media screen and (min-width:1200px){
+    .footer .container .item{
+        width: 25%;
+    
+    }
 }
 
 .footer .container .item a{
@@ -261,6 +409,17 @@ h1{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    width: 100%;
+    padding-top: 20px;
+}
+
+
+@media screen and (min-width:1200px){
+    .footer .container .social{
+        width: 25%;
+        padding-top: none;
+    
+    }
 }
 
 .footer .container .social a{
