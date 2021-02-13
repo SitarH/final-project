@@ -117,8 +117,62 @@ h1{
     }
 }
 
-.main img{
+.main{
+    position: relative;
+    left: 0; 
+    top: 0;
     width: 100%;
+
+}
+.main .home{
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.main .chairlift{
+   display: none;
+}
+
+@media screen and (min-width:1200px){
+.main .chairlift{
+    display: unset;
+    width: 600px;
+    height: 500px;
+    position: absolute;
+    left: 80px;
+    margin-left: 500px;
+    animation: swing ease-in-out 1s infinite alternate;
+    transform-origin: center -20px;
+    float:left;
+   
+}
+
+.main .chairlift:after{
+    content: '';
+    position: absolute;  
+    width: 20px; height: 20px;  
+   
+    top: -10px; left: 50%;
+    z-index: 0;
+    border-bottom: none;
+    border-right: none;
+    transform: rotate(45deg);
+}
+/* nail */
+.main .chairlift:before{
+    content: '';
+    position: absolute;
+    width: 5px; height: 5px;
+    top: -14px;left: 54%;
+    z-index: 5;
+    border-radius: 50% 50%;
+ 
+}
+}
+@keyframes swing {
+    0% { transform: rotate(3deg); }
+    100% { transform: rotate(-3deg); }
 }
 
 .shop .container{
@@ -170,11 +224,30 @@ h1{
     justify-content: space-between;
 }
 
-.categories img{
+.categories a{
+    overflow: hidden;
+    display: block;
+    
+}
+
+.categories a img{
     width: 160px;
     height: 190px;
     margin-top: 20px;
+    z-index: 10;
+    position: relative;
+    display: block;
+    max-width: 100%;
+    opacity: 1;
+    -webkit-transition: all .4s;
+    -moz-transition: all .4s;
+    transition: all .4s;
 }
+.categories a:hover img {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
 
 @media screen and (min-width:1200px){
     .shop .container .categories img{
@@ -239,6 +312,25 @@ h1{
     margin-bottom: 10px;
 }
 
+.item button:hover{
+    background: linear-gradient(-45deg, #c1480b, #048467 );
+	background-size: 400% 400%;
+	animation: gradient 3s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
 .insta{
     display: flex;
     flex-direction: column;
@@ -288,12 +380,7 @@ h1{
     }
 }
 
-.contact .container img{
-    width: 150px;
-    height: 150px;
-    position: absolute;
-    margin-top: 120px;
-}
+
 
 .contact .container .form{
     display: flex; 
@@ -301,6 +388,19 @@ h1{
     justify-content: space-between;
     text-align: center;
     align-items: center;
+    
+}
+.contact .container img{
+    display: none;
+}
+@media screen and (min-width:1200px){
+.contact .container img{
+    display: unset;
+    width: 150px;
+    position: absolute;
+    margin-left: 1000px;
+    margin-top: 77px
+}
 }
 
 @media screen and (min-width:1200px){
@@ -350,7 +450,43 @@ h1{
     background-color: black;
     color: white;
     border: black solid 1px;
+    position: relative;
+    overflow: hidden;
 }
+
+.form .message button:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, .5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+  }
+  
+  @keyframes ripple {
+    0% {
+      transform: scale(0, 0);
+      opacity: 1;
+    }
+    20% {
+      transform: scale(25, 25);
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: scale(40, 40);
+    }
+  }
+  
+  button:focus:not(:active)::after {
+    animation: ripple 2s ease-out;
+  }
+  
 
 .footer{
     background-color: black;
